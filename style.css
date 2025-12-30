@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 15px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 10px 0 15px 0;
+    color: #333;
+}
+
+#startButton {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#startButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#statusMessage {
+    margin: 8px 0;
+    padding: 8px;
+    min-height: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Main container with camera and diagram side by side */
+#mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 15px auto;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Camera container - smaller now */
+#cameraContainer {
+    position: relative;
+    width: 160px;
+    flex-shrink: 0;
+}
+
+video {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background: #000;
+}
+
+canvas {
+    display: none;
+}
+
+/* Diagram container - larger and more visible */
+#diagramContainer {
+    flex: 1;
+    max-width: 280px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mouthDiagram {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #444;
+    display: none;
+    background: white;
+}
+
+#lowConfidenceWarning {
+    color: #b00020;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Output info below the diagram */
+#output {
+    background: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    max-width: 320px;
+    margin: 15px auto 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#output p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+#toolName, #confidence {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+    
+    #mainContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #cameraContainer {
+        width: 140px;
+    }
+    
+    video {
+        width: 140px;
+        height: 140px;
+    }
+    
+    #diagramContainer {
+        max-width: 100%;
+        width: calc(100% - 30px);
+    }
+    
+    #output {
+        width: calc(100% - 30px);
+        max-width: 100%;
+    }
+}

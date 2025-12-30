@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dental Tool Recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Dental Tool Recognition</h1>
+
+    <button id="startButton">Start Camera</button>
+    
+    <div id="statusMessage"></div>
+
+    <div id="mainContainer">
+        <!-- Camera on the left/top -->
+        <div id="cameraContainer">
+            <video id="video" autoplay playsinline muted></video>
+            <canvas id="canvas" width="224" height="224"></canvas>
+        </div>
+
+        <!-- Diagram display - large and prominent -->
+        <div id="diagramContainer">
+            <img id="mouthDiagram" src="" alt="Tool usage diagram" />
+            <p id="lowConfidenceWarning"></p>
+        </div>
+    </div>
+
+    <!-- Info below the image -->
+    <div id="output">
+        <p><strong>Detected Tool:</strong> <span id="toolName">-</span></p>
+        <p><strong>Confidence:</strong> <span id="confidence">-</span></p>
+    </div>
+
+    <!-- Load libraries in correct order -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+    <script src="teachablemachine-image.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
