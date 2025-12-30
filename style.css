@@ -7,58 +7,139 @@ body {
 }
 
 h1 {
-    font-size: 24px;
-    margin: 10px 0 15px 0;
-    color: #333;
+    font-size: 26px;
+    margin: 10px 0 20px 0;
+    color: #673AB7;
 }
 
-#startButton {
-    padding: 12px 25px;
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Start Screen */
+#startScreen {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#startScreen p {
+    color: #666;
     font-size: 16px;
-    background-color: #2196F3;
+    margin: 20px 0;
+}
+
+#startBtn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: #673AB7;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 10px;
+    transition: background 0.3s;
 }
 
-#startButton:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+#startBtn:hover {
+    background: #5E35B1;
 }
 
+/* Score Board */
+#scoreBoard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+}
+
+.scoreItem {
+    font-size: 16px;
+}
+
+.scoreLabel {
+    color: #666;
+    margin-right: 5px;
+}
+
+#score {
+    font-weight: bold;
+    color: #673AB7;
+    font-size: 20px;
+}
+
+#correct {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 20px;
+}
+
+#mistakes {
+    font-weight: bold;
+    color: #f44336;
+    font-size: 20px;
+}
+
+/* Status Message */
 #statusMessage {
-    margin: 8px 0;
+    margin: 10px 0;
     padding: 8px;
     min-height: 20px;
     font-weight: bold;
     font-size: 14px;
 }
 
-/* Main container with camera and diagram side by side */
-#mainContainer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 15px;
+/* Pathology Container */
+#pathologyContainer {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
     margin: 15px auto;
-    max-width: 100%;
-    flex-wrap: wrap;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-/* Camera container - smaller now */
+#pathologyImage {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    border: 3px solid #673AB7;
+    margin: 10px 0;
+}
+
+#pathologyInstruction {
+    color: #333;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Camera Container */
 #cameraContainer {
     position: relative;
-    width: 160px;
-    flex-shrink: 0;
+    width: 200px;
+    margin: 20px auto;
 }
 
 video {
-    width: 160px;
-    height: 160px;
-    border-radius: 8px;
-    border: 2px solid #333;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: 3px solid #673AB7;
     background: #000;
 }
 
@@ -66,79 +147,184 @@ canvas {
     display: none;
 }
 
-/* Diagram container - larger and more visible */
-#diagramContainer {
-    flex: 1;
-    max-width: 280px;
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Detection Overlay */
+#detectionOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 8px;
+    border-radius: 0 0 10px 10px;
 }
 
-#mouthDiagram {
-    max-width: 100%;
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid #444;
-    display: none;
-    background: white;
-}
-
-#lowConfidenceWarning {
-    color: #b00020;
+#detectedTool {
+    margin: 0 0 6px 0;
     font-weight: bold;
-    margin-top: 10px;
     font-size: 14px;
 }
 
-/* Output info below the diagram */
-#output {
-    background: white;
-    padding: 12px 15px;
+/* Stability Bar */
+#stabilityBar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#stabilityProgress {
+    height: 100%;
+    width: 0%;
+    background: #4CAF50;
+    transition: width 0.15s;
+}
+
+/* Feedback */
+#feedback {
+    margin: 20px auto;
+    max-width: 450px;
+}
+
+.feedbackCorrect {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
     border-radius: 10px;
-    max-width: 320px;
-    margin: 15px auto 0 auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-#output p {
-    margin: 8px 0;
-    font-size: 15px;
-}
-
-#toolName, #confidence {
-    color: #2196F3;
+    font-size: 17px;
     font-weight: bold;
+    animation: slideIn 0.3s;
 }
 
-/* Mobile adjustments */
+.feedbackWrong {
+    background: #FF9800;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    animation: slideIn 0.3s;
+}
+
+.feedbackHarmful {
+    background: #f44336;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    animation: shake 0.5s;
+    border: 3px solid #B71C1C;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Correct Tool Display */
+#correctToolDisplay {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+#correctDiagram {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 2px solid #673AB7;
+    margin: 10px 0;
+}
+
+#nextBtn {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: #673AB7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+#nextBtn:hover {
+    background: #5E35B1;
+}
+
+#nextBtn:active {
+    transform: scale(0.98);
+}
+
+/* Game Over */
+.gameOver {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 30px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.gameOver h2 {
+    color: #673AB7;
+    margin-bottom: 20px;
+}
+
+.gameOver p {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+.gameOver button {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: #673AB7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Mobile Responsive */
 @media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
+    #pathologyContainer {
+        max-width: 100%;
     }
     
-    #mainContainer {
-        flex-direction: column;
-        align-items: center;
+    #pathologyImage {
+        max-width: 100%;
     }
     
     #cameraContainer {
-        width: 140px;
+        width: 180px;
     }
     
     video {
-        width: 140px;
-        height: 140px;
+        width: 180px;
+        height: 180px;
     }
     
-    #diagramContainer {
-        max-width: 100%;
-        width: calc(100% - 30px);
-    }
-    
-    #output {
-        width: calc(100% - 30px);
-        max-width: 100%;
+    #scoreBoard {
+        gap: 15px;
+        font-size: 14px;
     }
 }
