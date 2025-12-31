@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <h1>🔬 Clinical Pathology Quiz</h1>
+    <h1>Clinical Pathology Quiz</h1>
 
     <!-- Start Screen -->
     <div id="startScreen">
@@ -70,14 +70,6 @@
         </div>
 
     </div>
-
-    <!-- Audio for feedback -->
-    <audio id="correctSound" preload="auto">
-        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSyBzvLZiTYIGWi779qgTQ0OT6fk7rdkHAU2jdXuzn0uBSh+zPDcjj8JFF67699nGA0IWrXr6qdWFApGnt/yu2sgBSt/zvLaizUIGGS56eCmUBELTKXj8LdjGwU3jdXv0H0vBSh+zPDcjj4JFF67699nFw0IWrXr6qdWFApGnt/yu2sgBSt/zvLaizUIGGS56eCmUBELTKXj8LdjGwU3jdXv0H0vBSh+zPDcjj4JFF67699nFw0IWrXr6qdWFApGnt/yu2sgBSt/zvLaizUIGGS56eCmUBELTKXj8LdjGwU3jdXv0H0vBSh+zPDcjj4JFF67699nFw0IWrXr6qdWFApGnt/yu2sgBSt/zvLaizUIGGS56eCmUBELTKXj8LdjGwU3jdXv0H0vBSh+zPDcjj4JFF67699nFw0IWrXr6qdWFApGnt/yu2sgBSt/zvLaizUIGGS56eCmUBELTKXj8LdjGwU3jdXv0H0vBSh+zPDcjj4JFF67699nFw0IWrXr6qdWFApGnt/yu2sgBSt/zvLaizUIGGS56eCmUBELTKXj8LdjGwU3jdXv0H0vBQ==" type="audio/wav">
-    </audio>
-    <audio id="wrongSound" preload="auto">
-        <source src="data:audio/wav;base64,UklGRhIFAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0Ye4EAADAtsXM1drd4+fo7fL2+v7//////v76/fv6+Pj29PPy8O7t7Ovq6ejn5uXk4+Lh4N/e3dza2djX1tTT0dDPzszLycjGxMPBwL++vLu5uLe1s7KxsK+urKuqqainpqSjoqGgn52cm5qZl5aVlJSTkZCOjYyLioiHhoWDgoF/fn18e3p4d3Z1c3JxcG5ta2ppaGZlZGNiYV9eXVxbWVhXVlVTUlFQT05MS0pJR0ZFRENCQD8+PTw7OTg3NjQzMjEwLi0sKyopKCYlJCMiISAfHRwbGhkYFxYVFBIRDw4NDAoKCQgHBgUEAwMCAQEAAP/+/v39/Pz7+/r6+fj4+Pf39vb19fT08/Pz8vLx8fHw8O/v7u7u7e3s7Ozr6+rq6urp6ejo6Ojn5+bm5ubk5OPj4+Lh4eHg4ODf397e3t3d3Nzb29ra2dnZ2NjY19fW1tbV1dXU1NPT09PS0tHR0dDQ0M/Pz87Nzc3MzMvLy8rKycnJyMjHx8fGxsXFxcTEw8PDwsLCwcHBwL+/vr6+vb28vLy7u7q6urm5uLi4t7a2trW1tLSzs7Ozs7KysrGxsLCwsK+vr66urq2tra2srKyrq6qqqqmpqampqKioqKenp6anpqWlpKSkpKOjo6KioqGhoaGgoJ+fn56enp2dnZ2cm5ubmpqampmZmJiYmJeXl5aWlpaVlZSUlJOTk5KSkpGRkZCQkI+Pj4+OjoyMjIuLioqKiYmIiIiHh4aGhoWFhISEg4ODgoKCgYGAgH9/f35+fn19fXx8e3t7enp6eXl5eHh4d3d2dnZ1dXV0dHRzc3Nyc3Jycf7+/f38/Pv7+vr5+fn4+Pf39/b29fX19PTz8/Py8vLy8fHx8PDw7+/v7u7u7e3t7e3s7Ozr6+vq6urq6enp6Ojn5+fn5+bm5ubm5eXl5OTk5OTj4+Pj4uLi4uLi4eHh4eHg4PDw8PDw" type="audio/wav">
-    </audio>
 
     <!-- Load libraries in correct order -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
