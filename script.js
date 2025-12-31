@@ -17,7 +17,7 @@ let mistakeCount = 0;
 // Detection state
 const TOOLS = ["1-2", "7-8", "9-10", "11-12", "13-14", "17-18"];
 let detectionBuffer = [];
-const BUFFER_SIZE = 12; // ~1.8 seconds of stable detection
+const BUFFER_SIZE = 16; // ~2.4 seconds of stable detection
 const CONFIDENCE_THRESHOLD = 0.70;
 let awaitingAnswer = false;
 let currentCase = 0;
